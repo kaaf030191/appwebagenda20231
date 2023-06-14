@@ -9,6 +9,9 @@ class CityController extends Controller
 	{
 		$listTCity = TCity::all();
 
-		dd($listTCity);
+		return view('city/getall',
+		[
+			'listTCity' => $listTCity
+		]);
 	}
 }
