@@ -11,8 +11,8 @@
 	<tbody>
 		@foreach($listTCity as $value)
 			<tr>
-				<td style="border: 1px dashed black;">{{$value->name}}</td>
-				<td style="border: 1px dashed black;">{{$value->created_at}}</td>
+				<td>{{$value->name}}</td>
+				<td>{{$value->created_at}}</td>
 			</tr>
 		@endforeach
 	</tbody>

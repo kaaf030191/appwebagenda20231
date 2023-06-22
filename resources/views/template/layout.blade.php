@@ -147,7 +147,11 @@
 		<!-- Main content -->
 		<section class="content">
 			<div class="container-fluid">
-				@yield('sectionGeneral')
+				<div class="row" style="background-color: #ffffff;">
+					<div class="col-md-12 pt-3 pb-3">
+						@yield('sectionGeneral')
+					</div>
+				</div>
 			</div><!-- /.container-fluid -->
 		</section>
 		<!-- /.content -->
