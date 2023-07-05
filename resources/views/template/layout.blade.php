@@ -203,5 +203,10 @@
 <script src="{{asset('plugins/adminlte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('plugins/adminlte/dist/js/adminlte.js')}}"></script>
+
+<script src="{{asset('plugins/formvalidation/formValidation.min.js')}}"></script>
+<script src="{{asset('plugins/formvalidation/bootstrap.validation.min.js')}}"></script>
+
+@yield('js')
 </body>
 </html>
