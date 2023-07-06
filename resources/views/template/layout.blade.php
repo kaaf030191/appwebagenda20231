@@ -25,6 +25,8 @@
 	<link rel="stylesheet" href="{{asset('plugins/adminlte/plugins/daterangepicker/daterangepicker.css')}}">
 	<!-- summernote -->
 	<link rel="stylesheet" href="{{asset('plugins/adminlte/plugins/summernote/summernote-bs4.min.css')}}">
+
+	<link rel="stylesheet" href="{{asset('plugins/pnotify/pnotify.custom.min.css')}}">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -207,6 +209,17 @@
 <script src="{{asset('plugins/formvalidation/formValidation.min.js')}}"></script>
 <script src="{{asset('plugins/formvalidation/bootstrap.validation.min.js')}}"></script>
 
+<script src="{{asset('plugins/pnotify/pnotify.custom.min.js')}}"></script>
+<script src="{{asset('plugins/sweetalert/sweetalert.min.js')}}"></script>
+
 @yield('js')
+
+<script>
+	$('html').on('keydown', () => {
+		if(event.keyCode == 13) {
+			return false;
+		}
+	});
+</script>
 </body>
 </html>
