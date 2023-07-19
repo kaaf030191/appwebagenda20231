@@ -8,3 +8,4 @@ Route::get('/', [IndexController::class, 'actionIndex']);
 
 Route::get('city/getall', [CityController::class, 'actionGetAll']);
 Route::match(['get', 'post'], 'city/insert', [CityController::class, 'actionInsert']);
+Route::get('city/delete/{idCity}', [CityController::class, 'actionDelete']);

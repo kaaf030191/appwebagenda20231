@@ -2,13 +2,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Session\SessionManager;
 use Illuminate\Support\Facades\Validator;
 
 use App\Models\TCity;
  
 class CityController extends Controller
 {
-	public function actionInsert(Request $request)
+	public function actionInsert(Request $request, SessionManager $sessionManager)
 	{
 		if($request->isMethod('post'))
 		{
@@ -40,6 +41,9 @@ class CityController extends Controller
 			}
 
 			if(count($listMessage) > 0) {
+				$sessionManager->flash('listMessage', $listMessage);
+				$sessionManager->flash('typeMessage', 'error');
+
 				return redirect('city/insert');
 			}
 
@@ -49,6 +53,9 @@ class CityController extends Controller
 			$tCity->name = $request->input('txtName');
 
 			$tCity->save();
+
+			$sessionManager->flash('listMessage', ['Registro realizado correctamente.']);
+			$sessionManager->flash('typeMessage', 'success');
 
 			return redirect('city/insert');
 		}
@@ -64,5 +71,20 @@ class CityController extends Controller
 		[
 			'listTCity' => $listTCity
 		]);
+	}
+
+	public function actionDelete($idCity, SessionManager $sessionManager)
+	{
+		$tCity = TCity::find($idCity);
+		
+		if($tCity != null)
+		{
+			$tCity->delete();
+		}
+
+		$sessionManager->flash('listMessage', ['Registro eliminado correctamente.']);
+		$sessionManager->flash('typeMessage', 'success');
+
+		return redirect('city/getall');
 	}
 }
